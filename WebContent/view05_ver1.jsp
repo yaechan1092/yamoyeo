@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +41,7 @@
 </head>
 <body>
 
+<!--상단 헤드 부분 입니다.  -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -47,19 +50,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="view02.jsp">
       	<img src="yamo03.bmp" width="100" height="40">
 	  </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> Login</font></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 회원 가입</font></a></li>
+        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> Login</font></a></li>
+        <li><a href="view05.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 회원 가입</font></a></li>
       </ul>
     </div>
   </div>
 </nav>
-  
+
+<!-- 하단 몸체 부분 입니다. 양쪽 사이드 네비 있고 가운데 메인 네비 -->  
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
@@ -70,8 +74,8 @@
 		I.D : <INPUT TYPE=text name="user_id"><br/><br/>
 		P.W : <input type=password name="user_pwd"><br/><br/>
 		이름 : <input type=text name="user_name"><br/><br/>
-		성별 : <input type="radio" name="sex" value="남"/> 남자
-			 <input type="radio" name="sex" value="여"/> 여자
+		성별 : <input type="radio" name="sex" value="남자"/> 남자
+			 <input type="radio" name="sex" value="여자"/> 여자
 			 <br/><br/>
 		핸드폰 번호 : <input type=text name="phone"/><br/><br/>
 		관심사 : 

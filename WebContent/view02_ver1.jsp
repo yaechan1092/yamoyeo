@@ -1,15 +1,52 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>main_logout</title>
-<style>
+  <title>로그인/메인 페이지</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <style>
+ 
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      background-color: #3366ff;
+      margin-bottom: 0;
+      border-radius: 0; 
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 900px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }  
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    
 table {text-align:center;}
 form {display:inline;}
-div {display:inline;}
-#joinbutton {width : 400px}
+caption {text-align:center;}
+
+#joinbutton {width : auto}
+#group_create {width : auto}
+#group_search {width : auto}
 #accordion .content {display:none;}
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -30,29 +67,49 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div align="left">
-	<span>
-	<a href="#">야모여LOGO</a>
-	</span>
-</div>
-<div style="float:right">
-	<!-- 로그인 -->
-	<form action="userLogin.do" method="post">
-		<div>
-			 ID <input type="text" size=10 name="user_id"> PW <input type="password" size=10 name="user_pwd">
-			<input id="login" type="submit" value="로그인">
-		</div>
-	</form>
-	<button id="join" onclick="javascript:location.href='view05.html';">회원가입</button>
-</div>
-<hr>
-<ul style="list-style:none" id="accordion">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">
+      	<img src="yamo03.bmp" width="100" height="40">
+	  </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      	<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><font size="4px" color="#ffffff">${user_id} 회원님</font><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="view07final.html"><i class="glyphicon glyphicon-user"></i> 마이 페이지</a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-log-out"></i> 로그아웃</a>
+                        </li>
+                    </ul>
+                </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+		<ul style="list-style:none" id="accordion">
 	<li>
 	<p class="subject">
-		<button id="joinbutton">모임 조회하기</button>&nbsp;&nbsp;<button id="group_create" onclick="javascript:location.href='view06.html';">모임 생성하기</button>
+		<button id="joinbutton" class="btn btn-primary ">모임 조회하기</button>
 	</p>
-	
-	<div class="content">
+		<div class="content">
 	<form action = "view03.jsp" method = "get">
 	
 		<b>카테고리</b>
@@ -76,16 +133,48 @@ $(document).ready(function() {
 			<b>요일</b><input type="radio" name="day" value="월">월 <input type="radio" name="day" value="화">화 <input type="radio" name="day" value="수">수 <input type="radio" name="day" value="목">목 <input type="radio" name="day" value="금">금 <input type="radio" name="day" value="토">토 <input type="radio" name="day" value="일">일
 		</div>
 		<br>
-		<b>모임명</b><input id="group_name" type="text" size=18>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input id="group_search" type = "submit" value = "모임 검색하기">
+		<b>모임명</b><input id="group_name" type="text" size=18>
+		<input id="group_search" class="btn btn-info" type = "submit" value = "모임 검색하기">
 	</form>
 	</div>
-	
+		<button id="group_create" class="btn btn-primary " onclick="javascript:location.href='view06.html';">모임 생성하기</button>
 	</li>
 </ul>
-<hr>
-<div align="center">
-	<table>
+</div>
+
+<div class="col-sm-8 text-center"> 
+<br>
+	<table align="center">
+	<caption><b><h4>${user.user_id} 회원님을 위한 추천모임</h4></b></caption>
+	<tr>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+	</tr>
+	</table><br>
+
+	<table align="center">
 	<caption><b>금주의 인기모임</b></caption>
 	<tr>
 		<td>
@@ -115,37 +204,11 @@ $(document).ready(function() {
 	</tr>
 	</table>
 </div>
-<hr>
-<div align="center">
-	<table>
-	<caption><b>최근에 생성된 모임</b></caption>
-	<tr>
-		<td>
-			<ul style="list-style:none">
-				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
-				<li> ${group.group_name} </li>
-				<li> ${group.interest} </li>
-				<li> ${group.state} </li>
-			</ul>
-		</td>
-		<td>
-			<ul style="list-style:none">
-				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
-				<li> ${group.group_name} </li>
-				<li> ${group.interest} </li>
-				<li> ${group.state} </li>
-			</ul>
-		</td>
-		<td>
-			<ul style="list-style:none">
-				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
-				<li> ${group.group_name} </li>
-				<li> ${group.interest} </li>
-				<li> ${group.state} </li>
-			</ul>
-		</td>
-	</tr>
-	</table>
+
+
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
 </div>
 </body>
 </html>

@@ -53,6 +53,7 @@ public class UserLoginController {
 			for(int i=0;i<list.size();i++){
 				try {
 					session.setAttribute(("group"+i), list.get(i).getGroup_name());
+					
 					System.out.println("추천 그룹 = " + list);
 					System.out.println("group" + i + " = " + list.get(i).getGroup_name());
 				} catch (Exception e) {

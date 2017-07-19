@@ -1,6 +1,7 @@
 package yamoyeo;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,29 @@ public class GroupSearchController {
 		// Output View
 		request.setAttribute("group", group);
 		HttpUtil.forward(request, response, "/groupSearchOutput.jsp");
+	}
+	
+	@RequestMapping(value = "searchGroup.do")
+	public String groupSearch(HttpServletRequest request, HttpServletResponse response){
+		
+		String interest = request.getParameter("interest");
+		String address = request.getParameter("address");
+		String day = request.getParameter("day");
+		
+		
+		Service service  = Service.getInstance();
+		ArrayList<GroupVO>list = service.groupSearch(interest, address, day);
+		for(int i=0 ; i<6 ; i++){
+			request.setAttribute("group_id"+i,list.get(i).getInterest());
+			request.setAttribute("interest"+i,list.get(i).getInterest());
+			request.setAttribute("state"+i,list.get(i).getState());
+			request.setAttribute("group_name"+i,list.get(i).getGroup_name());
+			request.setAttribute("image"+i,	"c:/logs/"+list.get(i).getImage());
+		}
+		
+		
+		
+		return "view03_ver1";
 	}
 
 }

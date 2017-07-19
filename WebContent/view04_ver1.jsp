@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>group_detail</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -46,6 +46,7 @@
 </head>
 <body>
 
+<!--상단 헤드 부분 입니다.  -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -54,72 +55,66 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">
-      
-      <img src="logo.jpg" width="40" height="40">
-    
-    </a>
+      <a class="navbar-brand" href="view02.jsp">
+           <img src="yamo03.bmp" width="100" height="40">
+      </a>
     </div>
+    
+    
     <div class="collapse navbar-collapse" id="myNavbar">
-     
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> Login</font></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 회원 가입</font></a></li>
+      	<li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
+        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
       </ul>
     </div>
   </div>
 </nav>
-  
-<div class="container-fluid text-center">    
+ 
+<!-- 하단 몸체 부분 입니다. 양쪽 사이드 네비 있고 가운데 메인 네비 -->
+<div class="container-fluid">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-    
     </div>
-    <div class="col-sm-8 text-center"> 
-      <form action="userInsert.do" method="post">
-	
-	<h1>회원 가입 하기</h1>
-	I.D : <INPUT TYPE=text id="user_id"><br/><br/>
-	P.W : <input type=password id="user_pwd"><br/><br/>
-	이름 : <input type=text id="user_name"><br/><br/>
-	<div id="sex">
-	성별 : <input type="radio" name="sex" value="m"/> 남자
-		 <input type="radio" name="sex" value="f"/> 여자
-	</div><br/><br/>
-	핸드폰 번호 : <input type=text id="phone"/><br/><br/>
-	<div id="interest">
-	관심사 : 
-		<input type="radio" name = "favorite" value="travel"/> 여행
-		<input type="radio" name = "favorite" value="study"/> 스터디
-		<input type="radio" name = "favorite" value="fried"/> 친목
-		<input type="radio" name = "favorite" value="culture"/> 문화
-		<input type="radio" name = "favorite" value="sports"/> 운동
-	</div><br/><br/>
-	<div>
-	지역 : 
-	<select id="address">
-		<option value="seoul"> 서울
-		<option value="ggd"> 경기도
-		<option value="gwd"> 강원도
-		<option value="cnd"> 충청남도
-		<option value="cbd"> 충청북도
-		<option value="jbd"> 전라북도
-		<option value="jnd"> 전라남도
-		<option value="gbd"> 경상북도
-		<option value="gnd"> 경상남도	
-		<option value="jjd"> 제주도
-	</select><br/>
-	</div>
-	<br/>
-	<br/>
-	
-	<div>
-	<input type=submit value="회원가입"/>
-	<input type="reset" value="다시 쓰기">
-	</div>
-	
-	</form>
+    <div class="col-sm-8 "> 
+		<table align="center">
+			<thead>
+				<td colspan="2" class="gname" align="center"><h4><b>모임${group.group_name}</b></h4><br/><br/></td><br/><br/>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src = ""width="200" height="200" alt = "모임대표이미지를 등록해 주세요"></td>
+					<td><ul style="list-style:none">
+						<li>카테고리  ${group.interest}</li>
+						<li>요일  ${group.day}</li>
+						<li>지역  ${group.address}</li>
+						<li>상태  ${group.state}</li>
+						<li>모임장  ${group.user_id}</li>
+						<li><br></li>
+						<li><button id="makegroup">가입하기</button>
+							<button id="reset">탈퇴하기</button></li>
+						</ul>
+					</td>
+				</tr>
+		
+				<tr>
+					<td colspan="2" class="introduce" align="center"><br><br><h4>모임 소개글</h4></td>
+				</tr>
+			</tbody>
+		</table>
 
+<hr>
+
+		
+		<form action="view04.jsp" method="get">
+		<div align="center">
+			<h2>댓 글</h2>
+				<div align="center">
+					<input type=text size="80" id="makereple">
+					<button id="enter">댓글쓰기</button>
+				</div>
+		</div>
+		</form>
     </div>
     <div class="col-sm-2 sidenav">
     
