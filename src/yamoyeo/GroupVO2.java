@@ -57,7 +57,7 @@ public class GroupVO2 {
 		this.image = image;
 		
 		if(!image.isEmpty()){
-			File file =  new File("c:/logs/"+image.getOriginalFilename());
+			File file =  new File("d:/logs/"+image.getOriginalFilename());
 			
 			try{
 				image.transferTo(file);

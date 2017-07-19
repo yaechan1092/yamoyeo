@@ -91,8 +91,12 @@
 						<li>상태  ${group.state}</li>
 						<li>모임장  ${group.user_id}</li>
 						<li><br></li>
+						<a href= "GroupJoin.do?group_id=${group.group_id}">
 						<li><button id="makegroup">가입하기</button>
+						</a>
+						<a href = "GroupDrop.do?group_id=${group.group_id}">
 							<button id="reset">탈퇴하기</button></li>
+						</a>
 						</ul>
 					</td>
 				</tr>

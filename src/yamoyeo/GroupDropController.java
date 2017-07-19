@@ -25,7 +25,7 @@ public class GroupDropController {
 		request.setAttribute("error", "탈퇴했습니다.");
 
 		// Output View
-		HttpUtil.forward(request, response, "groupdrop.jsp");
+		HttpUtil.forward(request, response, "view04_ver1.jsp");
 
 	}
 

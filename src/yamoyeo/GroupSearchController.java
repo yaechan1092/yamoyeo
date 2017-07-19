@@ -29,10 +29,10 @@ public class GroupSearchController {
 		// Service
 		Service service = Service.getInstance();
 		GroupVO group = service.searchGroup(group_id);
-
+		
 		// Output View
 		request.setAttribute("group", group);
-		HttpUtil.forward(request, response, "/groupSearchOutput.jsp");
+		HttpUtil.forward(request, response, "/view04_ver1.jsp");
 	}
 	
 	@RequestMapping(value = "searchGroup.do")
@@ -50,7 +50,7 @@ public class GroupSearchController {
 			request.setAttribute("interest"+i,list.get(i).getInterest());
 			request.setAttribute("state"+i,list.get(i).getState());
 			request.setAttribute("group_name"+i,list.get(i).getGroup_name());
-			request.setAttribute("image"+i,	"c:/logs/"+list.get(i).getImage());
+			request.setAttribute("image"+i,	"d:/logs/"+list.get(i).getImage());
 		}
 		
 		
