@@ -158,4 +158,45 @@ public class JoinDAO {
 		
 		
 	}
+	
+public  int searchJoin(String group_id, String user_id){//그룹 가입여부 리턴
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result =0;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select * from ya_join where user_id =? and group_id =?");
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, group_id); 
+			
+
+			ResultSet rs = pstmt.executeQuery();;
+			
+			if(rs.next()){
+				result = 1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return result;
+		
+		
+	}
+	
+	
 }

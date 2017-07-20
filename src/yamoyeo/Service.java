@@ -96,5 +96,9 @@ public class Service {
 	public  ArrayList<UserVO> searchUsers(String group_id){
 		return new JoinDAO().searchUsers(group_id);
 	}
+	
+	public  int searchJoin(String group_id, String user_id){
+		return new JoinDAO().searchJoin(group_id, user_id);
+	}
 //	--------------Join 접근 메소드----------------------
 }

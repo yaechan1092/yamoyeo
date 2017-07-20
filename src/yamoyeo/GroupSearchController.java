@@ -17,10 +17,10 @@ public class GroupSearchController {
 	public void searchGroup(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Parameter
-		
+		 HttpSession session = request.getSession();
 		 String group_id = request.getParameter("group_id");
-
-		// 유효성 체크
+		 String user_id = (String)session.getAttribute("user_id");
+		 // 유효성 체크
 		// if (group_id.isEmpty()) {
 		// request.setAttribute("error", "잘못누르셨습니다.");
 		// HttpUtil.forward(request, response, "/groupSearch.jsp");
@@ -30,9 +30,11 @@ public class GroupSearchController {
 		// Service
 		Service service = Service.getInstance();
 		GroupVO group = service.searchGroup(group_id);
+		int join_state = service.searchJoin(group_id, user_id);
 		
 		// Output View
 		request.setAttribute("group", group);
+		request.setAttribute("join_state", join_state);
 		HttpUtil.forward(request, response, "/view04_ver2.jsp");
 	}
 	
