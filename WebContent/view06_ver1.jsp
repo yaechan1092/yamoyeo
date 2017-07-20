@@ -55,15 +55,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="view02.jsp">
+      <a class="navbar-brand" href="view02_ver3.jsp">
           <img src="yamo03.bmp" width="100" height="40">
  	  </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar"> 
       <ul class="nav navbar-nav navbar-right">
   	    <li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
-        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
-        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
+        <li><a href="view07_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="index.html"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
       </ul>
     </div>
   </div>
@@ -75,7 +75,7 @@
     <div class="col-sm-2 sidenav">
     </div>
    	<div class="col-sm-8 text-center"> 
-    	<form action="view02.jsp" method="get">
+    	<form action="view02_ver3.jsp" method="get">
 			<h1>새로운 모임 만들기</h1>
 			모임명 : <INPUT TYPE=text name = "group_id"><br/><br/>
 			관심사 : <input type="radio" name="interest" value="여행">여행 <input type="radio" name="interest" value="스터디">스터디 <input type="radio" name="interest" value="친목">친목 <input type="radio" name="interest" value="문화">문화 <input type="radio" name="interest" value="운동">운동

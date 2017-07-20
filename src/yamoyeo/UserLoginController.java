@@ -50,18 +50,17 @@ public class UserLoginController {
 				request.setAttribute("result", "가입된 모임이 없습니다.");
 			}
 
-			for(int i=0;i<list.size();i++){
+			for (int i = 0; i < list.size(); i++) {
 				try {
-					session.setAttribute(("group"+i), list.get(i).getGroup_name());
+					session.setAttribute(("group" + i), list.get(i).getGroup_name());
 					System.out.println("추천 그룹 = " + list);
 					System.out.println("group" + i + " = " + list.get(i).getGroup_name());
 				} catch (Exception e) {
 					System.out.println("그룹부족");
-					session.setAttribute(("group"+i), null);
-					
+					session.setAttribute(("group" + i), null);
 				}
 			}
-			
+
 			// ========================================최근 모임, weekly 모임
 			ArrayList<GroupVO> list2 = service.weeklyGroup();
 			ArrayList<GroupVO> list3 = service.recentGroup();
@@ -74,15 +73,15 @@ public class UserLoginController {
 			System.out.println(list3);
 
 			// =========================================페이지 이동
-			HttpUtil.forward(request, response, "/view02.jsp");
+			HttpUtil.forward(request, response, "/view02_ver3.jsp");
 			return;
 		} else if (result.equals("비밀번호틀림")) {
 			request.setAttribute("error", "비밀번호가 틀립니다");
-			HttpUtil.forward(request, response, "/userLogin.jsp");
+			HttpUtil.forward(request, response, "/index.html");
 			return;
 		} else {
 			request.setAttribute("error", "아이디가 없습니다");
-			HttpUtil.forward(request, response, "/userLogin.jsp");
+			HttpUtil.forward(request, response, "/index.html");
 			return;
 		}
 

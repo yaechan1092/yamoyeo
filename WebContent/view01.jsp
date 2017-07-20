@@ -35,6 +35,7 @@ $(document).ready(function() {
 	<a href="#">야모여LOGO</a>
 	</span>
 </div>
+
 <div style="float:right">
 	<!-- 로그인 -->
 	<form action="userLogin.do" method="post">
@@ -43,14 +44,18 @@ $(document).ready(function() {
 			<input id="login" type="submit" value="로그인">
 		</div>
 	</form>
+
 	<button id="join" onclick="javascript:location.href='view05.html';">회원가입</button>
 </div>
+
 <hr>
 <ul style="list-style:none" id="accordion">
 	<li>
+	<form action="groupInsert.do" method="post">
 	<p class="subject">
 		<button id="joinbutton">모임 조회하기</button>&nbsp;&nbsp;<button id="group_create" onclick="javascript:location.href='view06.html';">모임 생성하기</button>
 	</p>
+	</form>
 	
 	<div class="content">
 	<form action = "view03.jsp" method = "get">

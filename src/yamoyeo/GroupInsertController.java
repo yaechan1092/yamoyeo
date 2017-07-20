@@ -3,8 +3,6 @@ package yamoyeo;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,7 +16,7 @@ import javax.servlet.http.*;
 @Controller
 public class GroupInsertController {
 
-	@RequestMapping(value = "groupInsert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "groupInsert.do")
 	public String insertGroup(@ModelAttribute("group") GroupVO2 group) {
 
 		System.out.println(group);
@@ -26,7 +24,7 @@ public class GroupInsertController {
 		Service service = Service.getInstance();
 		service.insertGroup(group);
 
-		return "mainPage";// output 출력
+		return "view06_ver1";// output 출력
 
 	}
 }

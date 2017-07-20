@@ -57,7 +57,9 @@ public class Service {
 		return new GroupDAO().recGroup(interest, address);
 	}
 	
-	
+	public ArrayList<GroupVO> groupSearch(String interest, String address, String day){ // 조건 검색
+		return new GroupDAO().groupSearch(interest, address,day);
+	}
 //	--------------Group 접근 메소드----------------------
 	
 	public void insertComment(CommentVO comment){

@@ -55,7 +55,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="view02.jsp">
+      <a class="navbar-brand" href="view02_ver3.jsp">
            <img src="yamo03.bmp" width="100" height="40">
       </a>
     </div>
@@ -64,8 +64,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
       	<li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
-        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
-        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
+        <li><a href="view07_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="index.html"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
       </ul>
     </div>
   </div>
@@ -106,7 +106,7 @@
 <hr>
 
 		
-		<form action="view04.jsp" method="get">
+		<form action="view04_ver1.jsp" method="get">
 		<div align="center">
 			<h2>댓 글</h2>
 				<div align="center">

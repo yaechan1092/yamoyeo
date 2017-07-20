@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @org.springframework.stereotype.Controller
 public class UserInsertController {
 
-	@RequestMapping(value = "view/userInsert.do")
+	@RequestMapping(value = "userInsert.do")
 	public String userInsert(@ModelAttribute("user") UserVO user, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
@@ -25,8 +25,8 @@ public class UserInsertController {
 		service.insertUser(user);
 
 		// Output View 
-		session.setAttribute("user", user);
-		return "mainPage.jsp";
+		session.setAttribute("user_id", user.getUser_id());
+		return "view02_ver3";
 	}
 
 }

@@ -85,7 +85,7 @@ $(document).ready(function() {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><font size="4px" color="#ffffff">${user_id} 회원님</font><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="view07final.html"><i class="glyphicon glyphicon-user"></i> 마이 페이지</a>
+                            <a href="view07_ver1.jsp"><i class="glyphicon glyphicon-user"></i> 마이 페이지</a>
                         </li>
                         <li class="divider">
                         </li>
@@ -108,7 +108,7 @@ $(document).ready(function() {
 		<button id="joinbutton" class="btn btn-primary ">모임 조회하기</button>
 	</p>
 		<div class="content">
-	<form action = "view03.jsp" method = "get">
+	<form action = "view03_ver1.jsp" method = "get">
 	
 		<b>카테고리</b>
 		<input type="radio" name="interest" value="여행">여행 <input type="radio" name="interest" value="스터디">스터디 <input type="radio" name="interest" value="친목">친목 <input type="radio" name="interest" value="문화">문화 <input type="radio" name="interest" value="운동">운동
@@ -135,7 +135,7 @@ $(document).ready(function() {
 		<input id="group_search" class="btn btn-info" type = "submit" value = "모임 검색하기">
 	</form>
 	</div>
-		<button id="group_create" class="btn btn-primary " onclick="javascript:location.href='view06.html';">모임 생성하기</button>
+		<button id="group_create" class="btn btn-primary " onclick="javascript:location.href='view06_ver1.jsp';">모임 생성하기</button>
 	</li>
 </ul>
 </div>
@@ -147,10 +147,10 @@ $(document).ready(function() {
 	<tr>
 		<td>
 			<ul style="list-style:none">
-				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
-				<li> ${group.group_name} </li>
-				<li> ${group.interest} </li>
-				<li> ${group.state} </li>
+				<li><a href=""><img src="group0.image" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group0.group_name} </li>
+				<li> ${group0.interest} </li>
+				<li> ${group0.state} </li>
 			</ul>
 		</td>
 		<td>

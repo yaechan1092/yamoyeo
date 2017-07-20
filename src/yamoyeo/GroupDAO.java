@@ -271,4 +271,49 @@ public class GroupDAO {
 		}
 		return list;
 	}
+	
+	public ArrayList<GroupVO> groupSearch(String interest, String address, String day) { // 조건 검색
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ArrayList<GroupVO> list = new ArrayList<GroupVO>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select * from ya_group where interest = ? and address =? and day =?");
+			
+			pstmt.setString(1, interest);
+			pstmt.setString(2, address);
+			pstmt.setString(3, day);
+			System.out.println(interest + address + day);
+			ResultSet rs = pstmt.executeQuery();
+			
+//			System.out.println(rs.next());
+			for (int i = 0; i < 6; i++) {
+				if(rs.next()){
+					list.add(new GroupVO(rs.getString("group_id"), rs.getString("group_name"), rs.getString("interest"),
+							rs.getString("image"), rs.getString("memo"), rs.getString("address"), rs.getString("day"),
+							rs.getString("create_date"), rs.getInt("max_member"), rs.getInt("now_member"),
+							rs.getString("state"), rs.getString("user_id")));
+				}
+				
+			}
+			System.out.println(list);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	
 }

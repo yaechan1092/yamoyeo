@@ -67,6 +67,7 @@ $(document).ready(function() {
 <body>
 
 
+    
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -79,14 +80,15 @@ $(document).ready(function() {
       	<img src="yamo03.bmp" width="100" height="40">
 	  </a>
     </div>
+    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      	
+      	<form action="userLogin.do" method="post">
       	<li><br><font color = "ffffff"><b>ID </b></font><input type="text" size=10 name="user_id"> 
       			<font color = "ffffff"><b>PW </b></font><input type="password" size=10 name="user_pwd"> </li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"><font size="4px" color=" #ffffff"></span> Login</font></a></li>
+        <li><input id="login" class="glyphicon glyphicon-user" type="submit" value="로그인"></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"><font size="4px" color=" #ffffff"></span> 회원 가입</font></a></li>
-      	
+      	</form>
       </ul>
     </div>
   </div>
