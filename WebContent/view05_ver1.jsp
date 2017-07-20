@@ -50,14 +50,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="view02.jsp">
+      <a class="navbar-brand" href="view02_ver3.jsp">
       	<img src="yamo03.bmp" width="100" height="40">
 	  </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> Login</font></a></li>
-        <li><a href="view05.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 회원 가입</font></a></li>
+        <li><a href="view02_ver3.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> Login</font></a></li>
+        <li><a href="view05_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 회원 가입</font></a></li>
       </ul>
     </div>
   </div>
@@ -74,8 +74,8 @@
 		I.D : <INPUT TYPE=text name="user_id"><br/><br/>
 		P.W : <input type=password name="user_pwd"><br/><br/>
 		이름 : <input type=text name="user_name"><br/><br/>
-		성별 : <input type="radio" name="sex" value="남자"/> 남자
-			 <input type="radio" name="sex" value="여자"/> 여자
+		성별 : <input type="radio" name="sex" value="남"/> 남자
+			 <input type="radio" name="sex" value="여"/> 여자
 			 <br/><br/>
 		핸드폰 번호 : <input type=text name="phone"/><br/><br/>
 		관심사 : 

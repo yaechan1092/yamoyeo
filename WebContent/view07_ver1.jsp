@@ -57,15 +57,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="view02.jsp">
+      <a class="navbar-brand" href="view02_ver3.jsp">
    	 	   	<img src="yamo03.bmp" width="100" height="40">
       </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
        <li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
-        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
-        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>      </ul>
+        <li><a href="view07_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="index.html"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>      </ul>
     </div>
   </div>
 </nav>
@@ -79,22 +79,22 @@
     	<div class="col-sm-8 text-center"> 
      	 <h1>마이 페이지</h1>
 			<div>
-			<form action="view07.jsp" method="post">
+			<form action="view07_ver1.jsp" method="post">
 				<input type=submit id="memadmin" value="회원정보 관리"/>
 			</form>
 
-			<form action="view08.jsp" method="post">
+			<form action="groupList.do" method="post">
 				<input type=submit id="groupadmin" value="모임 관리"/>
 			</form><p><br/>
 			</div>
 			
-			<form action="view07.jsp" method="post">
+			<form action="userUpdate.do" method="post">
 				I.D : <input type=text id="userID" name = "user_id" value ="${user_id}" disabled="disabled"><br/><br/>
 				P.W : <input type=password name="user_pwd" value = "${user_pwd}"><br/><br/>
 				이름 : <input type=text name="user_name" value = "${user_name}"><br/><br/>
 			
-				성별 : <input type="radio" name="sex" value="남자" checked/> 남자
-					<input type="radio" name="sex" value="여자"/> 여자
+				성별 : <input type="radio" name="sex" value="남" checked/> 남자
+					<input type="radio" name="sex" value="여"/> 여자
 					<br/><br/>
 				핸드폰 번호 : <input type=text name="phone" value = "${phone}"/><br/><br/>
 			

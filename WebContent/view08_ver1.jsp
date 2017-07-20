@@ -55,7 +55,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="view02.jsp">
+      <a class="navbar-brand" href="view02_ver3.jsp">
       
       <img src="yamo03.bmp" width="100" height="40">
     
@@ -65,8 +65,8 @@
      
       <ul class="nav navbar-nav navbar-right">
 		<li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
-        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
-        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>      </ul>
+        <li><a href="view07_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="index.html"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>      </ul>
     </div>
   </div>
 </nav>
@@ -80,12 +80,12 @@
     <div class="col-sm-8 align-center"> 
      
 	<h1> 마이 페이지</h1>
-		<form action="view07.jsp" method="post">
+		<form action="view07_ver1.jsp" method="post">
 	<input type=submit id="memadmin" value="회원정보 관리"/>
 	</form>
 
 	
-	<form action="view08.jsp" method="post">
+	<form action="view08_ver1.jsp" method="post">
 	<input type=submit id="groupadmin" value="모임 관리"/>
 	</form><p><br/>
 	
@@ -120,6 +120,7 @@
 		<thead>
 				<tr>
 					<th class="group_id">모임명</th>
+					<li> ${mygroup0} </li>
 					<th class="interest">관심사</th>
 					<th class="address">지역</th>
 					<th class="day">요일</th>

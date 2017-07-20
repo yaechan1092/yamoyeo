@@ -1,11 +1,15 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>검색 결과 페이지</title>
+  <title>로그인/메인 페이지</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="">
+    <meta name="author" content="">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,7 +18,7 @@
  
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
-      background-color: #3366ff;
+      background-color: #2c3e50;
       margin-bottom: 0;
       border-radius: 0; 
     }
@@ -25,7 +29,7 @@
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      background-color: #f1f1f1;
+      background-color: #ffffff;
       height: 100%;
     }  
     
@@ -37,15 +41,16 @@
       }
       .row.content {height:auto;} 
     }
-    
+ 
+}
     
 table {text-align:center;}
 form {display:inline;}
 caption {text-align:center;}
 
-#joinbutton {width : auto}
-#group_create {width : auto}
-#group_search {width : auto}
+#joinbutton {width : 200px}
+#group_create {width : 200px}
+#group_search {width : 200px}
 #accordion .content {display:none;}
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -68,7 +73,7 @@ $(document).ready(function() {
 <body>
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -76,12 +81,12 @@ $(document).ready(function() {
         <span class="icon-bar"></span>                        
       </button>
       <a class="navbar-brand" href="#">
-      	<img src="yamo03.bmp" width="100" height="40">
+      	<img src="logogo.bmp" width="100" height="40">
 	  </a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
       <ul class="nav navbar-nav navbar-right">
-      	    <li class="dropdown">
+      	<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><font size="4px" color="#ffffff">${user_id} 회원님</font><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -99,20 +104,22 @@ $(document).ready(function() {
   </div>
 </nav>
 
-<div class="container-fluid text-center">    
-  <div class="row content">
+
+<div class="container">  
+  <div class="row">
     <div class="col-sm-2 sidenav">
+    <br><br><br>
 		<ul style="list-style:none" id="accordion">
 	<li>
 	<p class="subject">
 		<button id="joinbutton" class="btn btn-primary ">모임 조회하기</button>
 	</p>
 		<div class="content">
-	<form action = "view03_ver1.jsp" method = "get">
+	<form action = "searchGroup.do" method = "get">
 	
 		<b>카테고리</b>
 		<input type="radio" name="interest" value="여행">여행 <input type="radio" name="interest" value="스터디">스터디 <input type="radio" name="interest" value="친목">친목 <input type="radio" name="interest" value="문화">문화 <input type="radio" name="interest" value="운동">운동
-		<br>
+		<br><br>
 		<b>지역&nbsp;</b>
 		<select name="address">
 			<option value="서울">서울</option>
@@ -126,31 +133,34 @@ $(document).ready(function() {
 			<option value="경상남도">경상남도</option>
 			<option value="제주도">제주도</option>
 		</select>
-		<br>
+		<br><br>
 		<div>
 			<b>요일</b><input type="radio" name="day" value="월">월 <input type="radio" name="day" value="화">화 <input type="radio" name="day" value="수">수 <input type="radio" name="day" value="목">목 <input type="radio" name="day" value="금">금 <input type="radio" name="day" value="토">토 <input type="radio" name="day" value="일">일
 		</div>
 		<br>
-		<b>모임명</b><input id="group_name" type="text" size=18>
+		<b>모임명</b><input id="group_name" type="text" size=200px><br>
 		<input id="group_search" class="btn btn-info" type = "submit" value = "모임 검색하기">
-	</form>
+	</form><br><br>
 	</div>
 		<button id="group_create" class="btn btn-primary " onclick="javascript:location.href='view06_ver1.jsp';">모임 생성하기</button>
 	</li>
 </ul>
 </div>
 
-<div class="col-sm-8 text-center"> 
+<div class="col-md-9">
+<div class="row carousel-holder">
+
+                    <div class="col-md-12">
 <br>
 	<table align="center">
-	<caption><b><h4>검색결과</h4></b></caption>
+	<caption><b><h3>${user.user_id} 회원님을 위한 추천모임</h3></b></caption>
 	<tr>
 		<td>
 			<ul style="list-style:none">
-				<li><a href=""><img src="group0.image" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
-				<li> ${group0.group_name} </li>
-				<li> ${group0.interest} </li>
-				<li> ${group0.state} </li>
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
 			</ul>
 		</td>
 		<td>
@@ -170,6 +180,40 @@ $(document).ready(function() {
 			</ul>
 		</td>
 	</tr>
+	</table><br>
+
+	<table align="center">
+	<caption><b><h3>금주의 인기모임</h3></b></caption>
+	<tr>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+		<td>
+			<ul style="list-style:none">
+				<li><a href=""><img src="" width="200" height="200" alt="이미지를 업로드해주세요"></a></li>
+				<li> ${group.group_name} </li>
+				<li> ${group.interest} </li>
+				<li> ${group.state} </li>
+			</ul>
+		</td>
+	</tr>
+	</table><br>
+	
+	<table align="center">
+	<caption><b><h3>최근에 생성된 모임</h3></b></caption>
 	<tr>
 		<td>
 			<ul style="list-style:none">
@@ -198,10 +242,39 @@ $(document).ready(function() {
 	</tr>
 	</table>
 </div>
+  </div>
+</div>
 
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-  </div>
+<footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>DEVELOPER</h3>
+                        <p>CHO Yo Sung, KIM Seo Yeon<br> KIM Yae Chan, SHIN Sang Yeop </p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; KODB CLASS-1 GROUP-3
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
 </body>
 </html>
