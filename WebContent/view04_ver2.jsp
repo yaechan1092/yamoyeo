@@ -9,6 +9,21 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script type="text/javascript">
+  
+ 
+ 	var flag=${join_state};
+  $(document).ready(function() {
+	   if (flag == 1) { //가입 상태면 '가입하기' 버튼이 사라짐
+		  $("#joinGroup").css("display","none");
+	  }
+	  else if (flag ==0) { //가입하지 않은 상태면 '탈퇴하기' 버튼이 사라짐
+		  $("#disjoinGroup").css("display","none");
+	  }
+	});
+  
+  </script>
   
   <style>
  	table {text-align:center; align:center;}
@@ -91,12 +106,8 @@
 						<li>상태  ${group.state}</li>
 						<li>모임장  ${group.user_id}</li>
 					<li><br></li>
-						<a href= "GroupJoin.do?group_id=${group.group_id}">
-						<li><button id="makegroup">가입하기</button>
-						</a>
-						<a href = "GroupDrop.do?group_id=${group.group_id}">
-							<button id="reset">탈퇴하기</button></li>
-						</a>
+					<li><a href= "GroupJoin.do?group_id=${group.group_id}" id = "joinGroup"><b>가입하기</b></a>&nbsp;
+					<a href = "GroupDrop.do?group_id=${group.group_id}" id = "disjoinGroup"><b>탈퇴하기</b></a></li>
 						</ul>
 					</td>
 				</tr>

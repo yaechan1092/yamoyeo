@@ -30,8 +30,8 @@ public class GroupSearchController {
 		// Service
 		Service service = Service.getInstance();
 		GroupVO group = service.searchGroup(group_id);
-		int join_state = service.searchJoin(group_id, user_id);
-		
+		int join_state = service.searchJoin(group_id, group_id);
+		System.out.println(join_state);
 		// Output View
 		request.setAttribute("group", group);
 		request.setAttribute("join_state", join_state);

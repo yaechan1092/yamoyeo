@@ -26,7 +26,7 @@ public class GroupJoinController {
 		service.addJoin(user_id, group_id);
 
 		request.setAttribute("error", "가입되었습니다.");
-		HttpUtil.forward(request, response, "/view04_ver1.jsp");
+		HttpUtil.forward(request, response, "/groupSearch.do");
 
 	}
 
