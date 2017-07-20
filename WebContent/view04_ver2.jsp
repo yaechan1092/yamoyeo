@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
   <style>
- 
+ 	table {text-align:center; align:center;}
   	
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -64,8 +64,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
       	<li><span><font size="0.5"></span><br></font><font size="4" color="#EAEAEA">${user_id} 회원님으로 로그인하셨습니다</font></li>
-        <li><a href="view07_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
-        <li><a href="view01_ver1.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
+        <li><a href="view07.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 마이페이지</font></a></li>
+        <li><a href="view01.jsp"><span class="glyphicon glyphicon-log-in"><font size="5" color=" #ffffff"></span> 로그아웃</font></a></li>
       </ul>
     </div>
   </div>
@@ -79,7 +79,7 @@
     <div class="col-sm-8 "> 
 		<table align="center">
 			<thead>
-				<td colspan="2" class="gname" align="center"><h4><b>모임${group.group_name}</b></h4><br/><br/></td><br/><br/>
+				<td colspan="2" class="gname" align="center"><h4><b>모임${group_id}</b></h4><br/><br/></td><br/><br/>
 			</thead>
 			<tbody>
 				<tr>
@@ -91,12 +91,8 @@
 						<li>상태  ${group.state}</li>
 						<li>모임장  ${group.user_id}</li>
 						<li><br></li>
-						<a href= "GroupJoin.do?group_id=${group.group_id}">
 						<li><button id="makegroup">가입하기</button>
-						</a>
-						<a href = "GroupDrop.do?group_id=${group.group_id}">
 							<button id="reset">탈퇴하기</button></li>
-						</a>
 						</ul>
 					</td>
 				</tr>
@@ -110,15 +106,84 @@
 <hr>
 
 		
-		<form action="view04.jsp" method="get">
+		<form action="commentInsert.do" >
 		<div align="center">
-			<h2>댓 글</h2>
+			<h3>댓 글</h3>
 				<div align="center">
-					<input type=text size="80" id="makereple">
-					<button id="enter">댓글쓰기</button>
+ 					<input type=text size="80" name = "comment_text">
+ 					<input type = hidden name = "group_id" value = ${group.group_id}> 
+					<input type = submit id="enter" value = "댓글쓰기">
 				</div>
+				
 		</div>
 		</form>
+		
+		<br/><br/>
+
+	<table width = 700 align = "center" >
+		<thead>
+			<tr>
+				<td width = 50><b>번호</b></td>
+				<td width = 100><b>작성자</b></td>
+				<td width = 550><b>댓글내용</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>${comment0.comment_id}</td>
+				<td>${comment0.user_id}</td>
+				<td>${comment0.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment1.comment_id}</td>
+				<td>${comment1.user_id}</td>
+				<td>${comment1.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment2.comment_id}</td>
+				<td>${comment2.user_id}</td>
+				<td>${comment2.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment3.comment_id}</td>
+				<td>${comment3.user_id}</td>
+				<td>${comment3.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment4.comment_id}</td>
+				<td>${comment4.user_id}</td>
+				<td>${comment4.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment5.comment_id}</td>
+				<td>${comment5.user_id}</td>
+				<td>${comment5.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment6.comment_id}</td>
+				<td>${comment6.user_id}</td>
+				<td>${comment6.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment7.comment_id}</td>
+				<td>${comment7.user_id}</td>
+				<td>${comment7.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment8.comment_id}</td>
+				<td>${comment8.user_id}</td>
+				<td>${comment8.comment_text}</td>
+			</tr>
+			<tr>
+				<td>${comment9.comment_id}</td>
+				<td>${comment9.user_id}</td>
+				<td>${comment9.comment_text}</td>
+			</tr>															
+		</tbody>		
+		</table>
+		
+		
+		
     </div>
     <div class="col-sm-2 sidenav">
     

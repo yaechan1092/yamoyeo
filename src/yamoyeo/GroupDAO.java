@@ -59,7 +59,7 @@ public class GroupDAO {
 			}
 		}
 	}
-
+	
 	public GroupVO searchGroup (String group_id) { // group_id로 검색후 GroupVO 객체 반환
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -95,6 +95,46 @@ public class GroupDAO {
 		}
 
 		return group;
+	}
+	
+	
+	public ArrayList<GroupVO> searchMygroup(String user_id){
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ArrayList<GroupVO> list = new ArrayList<GroupVO>(); 
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select * from ya_group where user_id =?");
+			pstmt.setString(1, user_id);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				list.add(new GroupVO(rs.getString("group_id"), rs.getString("group_name"), rs.getString("interest"),
+						rs.getString("image"), rs.getString("memo"), rs.getString("address"), rs.getString("day"),
+						rs.getString("create_date"), rs.getInt("max_member"), rs.getInt("now_member"),rs.getString("state"), rs.getString("user_id")));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+		
+		
 	}
 
 	public void updateGroup(GroupVO2 group) { // User 가입

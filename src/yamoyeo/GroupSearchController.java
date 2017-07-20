@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,8 +17,8 @@ public class GroupSearchController {
 	public void searchGroup(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Parameter
-		String group_id = "test";
-		// request.getParameter("group_id");
+		
+		 String group_id = request.getParameter("group_id");
 
 		// 유효성 체크
 		// if (group_id.isEmpty()) {
@@ -32,7 +33,7 @@ public class GroupSearchController {
 		
 		// Output View
 		request.setAttribute("group", group);
-		HttpUtil.forward(request, response, "/view04_ver1.jsp");
+		HttpUtil.forward(request, response, "/view04_ver2.jsp");
 	}
 	
 	@RequestMapping(value = "searchGroup.do")
@@ -56,6 +57,23 @@ public class GroupSearchController {
 		
 		
 		return "view03_ver1";
+	}
+	
+	@RequestMapping(value = "searchMygroup.do")
+	public String searchMygroup(HttpServletRequest request, HttpServletResponse response){
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("user_id");
+		ArrayList<GroupVO> list = null;
+		Service service = Service.getInstance();
+		list = service.searchMygroup(user_id);
+		
+		for(int i = 0; i<list.size(); i++){
+			
+			request.setAttribute("group"+i, list.get(i));
+		}
+		
+		
+		return "view08_ver1";
 	}
 
 }

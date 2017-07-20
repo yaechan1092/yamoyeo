@@ -13,6 +13,42 @@ import org.apache.log4j.chainsaw.Main;
 public class CommentDAO {
 	
 	
+	public static void main(String[] args) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select comment_id,comment_text,user_id from ya_comment where group_id =? order by comment_id asc");
+			pstmt.setString(1,"test");
+
+			ResultSet rs = pstmt.executeQuery();
+			
+			
+			if (rs.next()) {
+				CommentVO vo =new CommentVO(rs.getInt("comment_id"),rs.getString("comment_text"),rs.getString("user_id"),"test");
+				System.out.println(vo);
+				list.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(list);
+		
+	}
+	
 	
 	public static Connection getConnection() { // connection 객체 생성
 		Connection conn = null;
@@ -70,17 +106,19 @@ public class CommentDAO {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ArrayList<CommentVO> comment_list = null;
+		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement("select comment_id,comment_text,user_id from ya_comment where group_id =? order by comment_id asc");
-			pstmt.setString(1, group_id);
+			pstmt.setString(1,"test");
 
 			ResultSet rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				comment_list.add(new CommentVO(rs.getInt("comment_id"),rs.getString("comment_text"),rs.getString("user_id"),rs.getString("group_id")));
+			
+			
+			while(rs.next()) {
+				CommentVO vo =new CommentVO(rs.getInt("comment_id"),rs.getString("comment_text"),rs.getString("user_id"),"test");
+				list.add(vo);
 			}
 
 		} catch (Exception e) {
@@ -96,7 +134,9 @@ public class CommentDAO {
 				e.printStackTrace();
 			}
 		}
-		return comment_list;
+		
+		
+		return list;
 	}
 	
 public void deleteComment(int comment_id){

@@ -41,6 +41,10 @@ public class Service {
 		return new GroupDAO().searchGroup(group_id);
 	}
 	
+	public ArrayList<GroupVO> searchMygroup(String user_id){
+		return new GroupDAO().searchMygroup(user_id);
+	}
+	
 	public void deleteGroup(String group_id){
 		new GroupDAO().deleteGroup(group_id);
 	}

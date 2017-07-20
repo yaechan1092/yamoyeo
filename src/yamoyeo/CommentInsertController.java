@@ -1,6 +1,7 @@
 package yamoyeo;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,23 +18,29 @@ public class CommentInsertController  {
 		// Parameter
 		String comment_text = request.getParameter("comment_text");
 		HttpSession session = request.getSession();
+		ArrayList<CommentVO> list= null;
 		
 		// 유효성 검사
 		if (comment_text.isEmpty()) {
 			request.setAttribute("error", "댓글을 입력해주세요");
-			HttpUtil.forward(request, response, "/commentInsert.jsp");
+			HttpUtil.forward(request, response, "/view04_ver2.jsp");
 			return;
 		}
 
-		 CommentVO comment = new CommentVO(0 , comment_text, "test", "test");
+		 CommentVO comment = new CommentVO(0 , comment_text, (String)session.getAttribute("user_id"), request.getParameter("group_id"));
 		
 		 Service service = Service.getInstance();
 		
 		 service.insertComment(comment);
-		 request.setAttribute("comment", comment);
-
+//		 request.setAttribute("comment", comment);
+		 list = service.getComment(request.getParameter("group_id"));
+		 for(int i =0; i<list.size(); i++){
+			 request.setAttribute("comment"+i, list.get(i));
+		 }
+		 System.out.println("log");
 		// Output 
-		HttpUtil.forward(request, response, "/commentInsert.jsp");
+		request.setAttribute("group_id", request.getParameter("group_id"));
+		HttpUtil.forward(request, response, "/view04_ver2.jsp");
 
 	}
 
